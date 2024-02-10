@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ankitdeswal-app
+spec:
+  replicas: 2  # Number of replicas/instances of your application
+  selector:
+    matchLabels:
+      app: ankitdeswal-app
+  template:
+    metadata:
+      labels:
+        app: ankitdeswal-app
+    spec:
+      containers:
+      - name: ankitdeswal-app
+        image: gcr.io/logical-light-411605/gcpbuild.git  # Docker image from Google Container Registry
+        ports:
+        - containerPort: 8080  # Port your application listens on
