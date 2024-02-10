@@ -9,7 +9,7 @@ steps:
   args:
     - 'build'
     - '--tag'
-    - 'gcr.io/logical-light-411605/$(basename -s .git https://github.com/Ankit-Deswal/GCPBuild.git)'
+    - 'gcr.io/logical-light-411605/GCPBuild.git'
     - '.'
   dir: '/workspace/GCPBuild'
 
@@ -17,5 +17,5 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args:
     - 'push'
-    - 'gcr.io/logical-light-411605/$(basename -s .git https://github.com/Ankit-Deswal/GCPBuild.git)'
+    - 'gcr.io/logical-light-411605/GCPBuild.git'
   
