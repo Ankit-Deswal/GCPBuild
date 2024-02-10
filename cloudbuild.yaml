@@ -1,7 +1,7 @@
 steps:
 #First Clone from Google Cloud Source Repository  
 - name: 'gcr.io/cloud-builders/git'
-  args: ['clone', 'https://github.com/username/repo.git']
+  args: ['clone', 'https://github.com/Ankit-Deswal/GCPBuild.git']
 
 #Build the image 
 - name: 'gcr.io/cloud-builders/gcloud'
