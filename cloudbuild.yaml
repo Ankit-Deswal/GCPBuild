@@ -18,4 +18,10 @@ steps:
   args:
     - 'push'
     - 'gcr.io/logical-light-411605/gcpbuild.git'
+
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+    - 'apply'
+    - '-f'
+    - 'deployment.yaml'
   
