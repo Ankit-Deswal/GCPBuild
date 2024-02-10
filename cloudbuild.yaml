@@ -1,0 +1,24 @@
+steps:
+#First Clone from Google Cloud Source Repository  
+- name: 'gcr.io/cloud-builders/git'
+  args: ['clone', 'https://github.com/username/repo.git']
+
+#Build the image 
+- name: 'gcr.io/cloud-builders/gcloud'
+  args:
+    - 'builds'
+    - 'submit'
+    - '--tag'
+    - 'gcr.io/logical-light-411605/ankitdeswalpython'
+
+#Push the image  
+- name: 'gcr.io/cloud-builders/gcloud'
+  args:
+    - 'auth'
+    - 'configure-docker'
+    - '--quiet'
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+    - 'push'
+    - 'gcr.io/logical-light-411605/ankitdeswalpython'
+  
