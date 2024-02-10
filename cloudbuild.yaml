@@ -9,7 +9,7 @@ steps:
   args:
     - 'build'
     - '--tag'
-    - 'gcr.io/logical-light-411605/gcpbuil.git'
+    - 'gcr.io/logical-light-411605/gcpbuild.git'
     - '.'
   dir: '/workspace/GCPBuild'
 
