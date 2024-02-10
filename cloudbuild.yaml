@@ -18,6 +18,16 @@ steps:
   args:
     - 'push'
     - 'gcr.io/logical-light-411605/gcpbuild.git'
+    
+- name: 'gcr.io/cloud-builders/kubectl'
+  entrypoint: 'bash'
+  args:
+    - '-c'
+    - |
+      echo "Setting Kubernetes cluster configuration..."
+      export CLOUDSDK_COMPUTE_REGION=us-central1
+      export CLOUDSDK_COMPUTE_ZONE=us-central1-a
+      export CLOUDSDK_CONTAINER_CLUSTER=ankitdeswal-cluster-1
 
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
