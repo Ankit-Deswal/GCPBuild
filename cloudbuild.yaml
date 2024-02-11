@@ -12,6 +12,20 @@ steps:
     - 'gcr.io/logical-light-411605/gcpbuild.git'
     - '.'
   dir: '/workspace/GCPBuild'
+  
+# Create Volume for Database
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+    - 'volume'
+    - 'create'
+    - 'database-volume'
+
+# Create Volume for Logs
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+    - 'volume'
+    - 'create'
+    - 'logs-volume'
 
 # Push the image
 - name: 'gcr.io/cloud-builders/docker'
@@ -19,19 +33,5 @@ steps:
     - 'push'
     - 'gcr.io/logical-light-411605/gcpbuild.git'
     
-- name: 'gcr.io/cloud-builders/kubectl'
-  entrypoint: 'bash'
-  args:
-    - '-c'
-    - |
-      echo "Setting Kubernetes cluster configuration..."
-      export CLOUDSDK_COMPUTE_REGION=us-central1
-      export CLOUDSDK_COMPUTE_ZONE=us-central1-a
-      export CLOUDSDK_CONTAINER_CLUSTER=ankitdeswal-cluster-1
 
-- name: 'gcr.io/cloud-builders/kubectl'
-  args:
-    - 'apply'
-    - '-f'
-    - 'deployment.yaml'
   
