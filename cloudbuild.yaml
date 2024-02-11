@@ -9,7 +9,7 @@ steps:
   args:
     - 'build'
     - '--tag'
-    - 'gcr.io/logical-light-411605/gcpbuild:$(date +%s)'
+    - 'gcr.io/logical-light-411605/gcpbuild:$BUILD_ID'
     - '.'
   dir: '/workspace/GCPBuild'
   
@@ -31,7 +31,7 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args:
     - 'push'
-    - 'gcr.io/logical-light-411605/gcpbuild:$(date +%s)'
+    - 'gcr.io/logical-light-411605/gcpbuild:$BUILD_ID'
     
 
   
